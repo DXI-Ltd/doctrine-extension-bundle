@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dxi_doctrine_extension.enum.dbal_type_generator.class">Dxi\DoctrineExtension\Enum\DBAL\DBALTypeClassGenerator</parameter>
+        <parameter key="dxi_doctrine_extension.enum.dbal_registrar.class">Dxi\DoctrineExtension\Enum\DBAL\DBALTypeRegistrar</parameter>
+    </parameters>
+
+    <services>
+        <service id="dxi_doctrine_extension.enum.dbal_type_generator" class="%dxi_doctrine_extension.enum.dbal_type_generator.class%" public="false">
+        </service>
+        <service id="dxi_doctrine_extension.enum.dbal_registrar" class="%dxi_doctrine_extension.enum.dbal_registrar.class%">
+            <argument type="service" id="dxi_doctrine_extension.enum.dbal_type_generator" />
+        </service>
+    </services>
+</container>

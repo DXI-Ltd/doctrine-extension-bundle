@@ -1,0 +1,40 @@
+{
+    "name": "dxi/doctrine-extension-bundle",
+    "type": "library",
+    "description": "DXI Doctrine Extensions",
+    "keywords": ["enum", "doctrine", "mapping", "orm", "odm", "php-enum"],
+    "licence": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Bojdo",
+            "email": "daniel.bojdo@dxi.eu"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "dxi/doctrine-extension": "~1.0"
+    },
+    "require-dev": {
+        "doctrine/doctrine-bundle": "~1.3",
+        "stof/doctrine-extensions-bundle": "~1.2",
+        "doctrine/orm": "~2.4",
+        "doctrine/mongodb-odm-bundle": "~3.0",
+        "doctrine/doctrine-bundle": "~1.3",
+        "marc-mabe/php-enum": "~2.0",
+        "webit/test-tools": "0.*",
+        "behat/behat": "~3.0",
+        "phpunit/phpunit": "~4.2"
+    },
+    "autoload": {
+        "psr-4": {
+           "Dxi\\DoctrineExtensionBundle\\": "src/"
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
