@@ -44,7 +44,6 @@ Feature: DoctrineExtensionBundle configuration feature
         enum:
             types:
                 dxi.my_type: MyEnum
-        reference: false
     """
     When I bootstrap the application
     Then there should be following services defined:
@@ -62,7 +61,6 @@ Feature: DoctrineExtensionBundle configuration feature
     Given the configuration contains:
     """
     dxi_doctrine_extension:
-        enum: false
         reference: true
     """
     When I bootstrap the application
