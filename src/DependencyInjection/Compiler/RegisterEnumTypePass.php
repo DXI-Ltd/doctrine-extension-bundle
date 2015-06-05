@@ -40,9 +40,18 @@ class RegisterEnumTypePass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
+        $registrars = $container->getParameter('dxi_doctrine_extension.enum.registrars');
+        foreach ($registrars as $registrar) {
+            if ($container->findDefinition($registrar)) {
+                $registrar = $container->get($registrar);
+                foreach ($this->enumMap as $type => $class) {
+                    $registrar->registerType($type, $class);
+                }
+            }
+        }
+
         $types = $container->getParameter('dxi_doctrine_extension.enum.types');
         $types = array_replace($types, $this->enumMap);
-
         $container->setParameter('dxi_doctrine_extension.enum.types', $types);
     }
 }
