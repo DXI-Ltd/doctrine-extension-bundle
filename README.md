@@ -42,6 +42,7 @@ dxi_doctrine_extension:
 It generates ODM / DBAL Types for "MyEnum" class and registers them.
 
 See Enum extension documentation:
+
 [https://github.com/DXI-Ltd/doctrine-extension](https://github.com/DXI-Ltd/doctrine-extension "Dxi/Enum")
 
 ## Reference Extension
@@ -57,5 +58,6 @@ dxi_doctrine_extension:
 ```
 
 See Reference extension documentation:
+
 [https://github.com/DXI-Ltd/doctrine-extension](https://github.com/DXI-Ltd/doctrine-extension "Dxi/References")
 [https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/references.md](https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/references.md "Gedmo/References extension")
