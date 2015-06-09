@@ -9,6 +9,7 @@
 
 namespace Dxi\DoctrineExtensionBundle\DependencyInjection\Compiler;
 
+use Dxi\DoctrineExtension\Reference\RegistryTypes;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -20,9 +21,13 @@ use Symfony\Component\DependencyInjection\Reference;
 class ReferencePass implements CompilerPassInterface
 {
     const REFERENCE_LISTENER_ID = 'dxi_doctrine_extension.reference.listener';
+
+    /**
+     * @var array
+     */
     private static $registries = array(
-        'orm' => 'doctrine',
-        'odm' => 'doctrine_mongodb'
+        RegistryTypes::ORM => 'doctrine',
+        RegistryTypes::MONGODB_ODM => 'doctrine_mongodb'
     );
 
     /**
