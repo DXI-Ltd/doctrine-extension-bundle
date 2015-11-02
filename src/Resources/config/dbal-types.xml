@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dxi_doctrine_extension.dbal_types.registrar.class">Dxi\DoctrineExtension\DBAL\TypesRegistrar</parameter>
+    </parameters>
+
+    <services>
+        <service id="dxi_doctrine_extension.dbal_types.registrar" class="%dxi_doctrine_extension.dbal_types.registrar.class%">
+            <argument type="collection" />
+        </service>
+    </services>
+</container>

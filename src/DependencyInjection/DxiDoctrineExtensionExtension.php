@@ -36,6 +36,10 @@ class DxiDoctrineExtensionExtension extends Extension
         $config = $this->processConfiguration(new Configuration(), $configs);
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
+        if ($config['types']['enabled']) {
+            $this->loadDbalTypes($container, $loader, $config['types']['dbal']);
+        }
+
         if ($config['enum']) {
             $this->loadEnum($container, $loader, $config['enum']);
         }
@@ -93,5 +97,27 @@ class DxiDoctrineExtensionExtension extends Extension
         }
 
         $loader->load('reference.xml');
+    }
+
+    private function loadDbalTypes(ContainerBuilder $container, XmlFileLoader $loader, array $dbalConfig)
+    {
+        if (class_exists('Doctrine\DBAL\Types\Type', true)) {
+            $loader->load('dbal-types.xml');
+
+
+            $typesMap = array();
+            foreach ($dbalConfig as $type => $typeConfig) {
+                if (! $typeConfig['enabled']) {
+                    continue;
+                }
+
+                $typesMap[$typeConfig['class']] = $typeConfig['name'];
+            }
+
+            if ($typesMap) {
+                $registrar = $container->getDefinition('dxi_doctrine_extension.dbal_types.registrar');
+                $registrar->replaceArgument(0, $typesMap);
+            }
+        }
     }
 }

@@ -37,6 +37,10 @@ class DxiDoctrineExtensionBundle extends Bundle
 
     public function boot()
     {
+        if ($this->container->has('dxi_doctrine_extension.dbal_types.registrar')) {
+            $this->container->get('dxi_doctrine_extension.dbal_types.registrar')->register();
+        }
+
         if (true == $this->container->getParameter('dxi_doctrine_extension.enum.enabled')) {
             $registrars = $this->container->getParameter('dxi_doctrine_extension.enum.registrars');
             $types = $this->container->getParameter('dxi_doctrine_extension.enum.types');
