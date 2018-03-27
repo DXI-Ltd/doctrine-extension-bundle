@@ -9,7 +9,7 @@
     </parameters>
 
     <services>
-        <service id="dxi_doctrine_extension.dbal_types.registrar" class="%dxi_doctrine_extension.dbal_types.registrar.class%">
+        <service id="dxi_doctrine_extension.dbal_types.registrar" class="%dxi_doctrine_extension.dbal_types.registrar.class%" public="true">
             <argument type="collection" />
         </service>
     </services>
