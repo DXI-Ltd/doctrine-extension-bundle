@@ -12,7 +12,7 @@
     <services>
         <service id="dxi_doctrine_extension.enum.dbal_type_generator" class="%dxi_doctrine_extension.enum.dbal_type_generator.class%" public="false">
         </service>
-        <service id="dxi_doctrine_extension.enum.dbal_registrar" class="%dxi_doctrine_extension.enum.dbal_registrar.class%">
+        <service id="dxi_doctrine_extension.enum.dbal_registrar" class="%dxi_doctrine_extension.enum.dbal_registrar.class%" public="true">
             <argument type="service" id="dxi_doctrine_extension.enum.dbal_type_generator" />
         </service>
     </services>
