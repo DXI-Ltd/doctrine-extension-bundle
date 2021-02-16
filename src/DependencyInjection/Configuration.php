@@ -26,10 +26,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $root = $treeBuilder->root('dxi_doctrine_extension');
+        $treeBuilder = new TreeBuilder('dxi_doctrine_extension');
 
-        $root->children()
+        $treeBuilder->getRootNode()->children()
             ->arrayNode('types')->canBeDisabled()->addDefaultsIfNotSet()
                 ->children()
                     ->arrayNode('dbal')->addDefaultsIfNotSet()
